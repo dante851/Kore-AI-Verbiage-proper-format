@@ -5,6 +5,7 @@ const xlsx = require("node-xlsx").default;
 const fs = require("fs");
 const { populateBotResponse } = require("./utility");
 const { resetExcelData } = require("./utility");
+const constants = require('./constants/index');
 /*
  * This is the most basic example of BotKit.
  *
@@ -37,11 +38,11 @@ module.exports = {
       data.message = "The Bot says hello!";
       console.log("bot message", data.message);
     }
-    console.log("verbiage_builder_resp", verbiage_En_RespData);
+    console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
-      currentLanguage === "fr" ? verbiage_Fr_RespData : verbiage_En_RespData;
+      currentLanguage === "fr" ? constants.verbiage_Fr_RespData : constants.verbiage_En_RespData;
     data.message = populateBotResponse(
       verbiageBuilderData,
       data.message,
