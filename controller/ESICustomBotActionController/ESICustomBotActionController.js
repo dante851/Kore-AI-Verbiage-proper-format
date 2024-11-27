@@ -30,10 +30,10 @@ module.exports = {
     let response;
     try {
       const language = req.body.currentLang || "en";
-    verbiage_En_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
-    verbiage_Fr_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
+    constants.verbiage_En_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
+   constants.verbiage_Fr_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
       const verbiageBuilderData =
-        language === "fr" ? verbiage_Fr_RespData : verbiage_En_RespData;
+        language === "fr" ? constants.verbiage_Fr_RespData : constants.verbiage_En_RespData;
     //   let result = verbiageBuilderData.filter(
     //     (ele) => ele.RESPONSE_ID === req.body.responseId
     //   );
