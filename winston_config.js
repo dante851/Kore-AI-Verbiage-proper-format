@@ -6,7 +6,7 @@ exports.logger = winston.createLogger({
   level: "info",
   transports: [
     new winston.transports.Console({
-      format: winston.format.simple(),
+      format: winston.simple(),
     }),
     new winston.transports.File({
       format: winston.combine(winston.timestamp(), winston.json()),
