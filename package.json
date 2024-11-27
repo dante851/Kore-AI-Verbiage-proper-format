@@ -73,7 +73,8 @@
     "node-xlsx": "^0.24.0",
     "jsonwebtoken": "^8.3.0",
     "cors": "^2.8.5",
-    "compression": "^1.7.5"
+    "compression": "^1.7.5",
+    "path": "^0.12.7"
   },
   "scripts": {
     "start": "node app.js",
