@@ -4,7 +4,7 @@ var sdk = require("./lib/sdk");
 var config = require("./config");
 var app = new Application(null, config);
 var server = new Server(config, app);
-const verbiageBuilder = require("./verbiageBuilder");
+const {verbiageBuilder} = require("./verbiageBuilder");
 sdk.checkNodeVersion();
 server.start();
 
