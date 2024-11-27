@@ -8,7 +8,7 @@
  */
 
 
-const MODULE_NAME = 'ESIEnterpriseServiseController';
+const MODULE_NAME = 'ESIEnterpriseServiceController';
 const constants = require("../../constants");
 const ESIEnterpriceService = require("../../service/ESIEnterpriseService");
 
