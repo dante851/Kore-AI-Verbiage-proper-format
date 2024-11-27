@@ -24,12 +24,13 @@ module.exports = {
     let response;
     
     try {
-      response = Object.create(constants.serverResponses.success);
       if (req.query.orderId && !req.query.memberId) {
+           response = Object.create(constants.serverResponses.success);
         response.body = await ESIEnterpriceService.getOrderDetails(
           req.query.orderId
         );
       } else if (req.query.memberId) {
+         response = Object.create(constants.serverResponses.success);
         response.body = await ESIEnterpriceService.getMemberDetails(
           req.query.memberId
         );
