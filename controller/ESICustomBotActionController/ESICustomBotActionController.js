@@ -8,10 +8,11 @@
  */
 
 const MODULE_NAME = "ESICustomBotActionController";
+const fs = require('fs');
 const constants = require("../../constants/index");
 const ESICustomBotActionService = require("../../service/ESICustomBotActionService");
-const EN_FILE = require("../../ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
-const FR_FILE = require("../../ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
+const EN_FILE = fs.readFileSync("../../ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
+const FR_FILE = fs.readFileSync("../../ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
 module.exports = {
   /**
    * Get the Verbiage details from the database.
