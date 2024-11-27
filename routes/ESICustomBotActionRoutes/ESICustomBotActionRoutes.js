@@ -11,7 +11,7 @@
 var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
-const ESICustomBotActionController = require("../../controller/ESICustomBotActionController/ESICustomBotActionController");
+const ESICustomBotActionController = require("../../controller/ESICustomBotActionController");
 
 router.use(function (req, res, next) {
   res.header(
