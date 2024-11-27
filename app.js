@@ -4,10 +4,11 @@ var sdk = require("./lib/sdk");
 var config = require("./config");
 var app = new Application(null, config);
 var server = new Server(config, app);
-const ESICustomBotActionService = require("./service/ESICustomBotActionService");
-verbiage_En_RespData =  ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
-verbiage_Fr_RespData =  ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
+const verbiageBuilder = require("./verbiageBuilder");
 sdk.checkNodeVersion();
 server.start();
+
+verbiage_En_RespData = verbiageBuilder("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
+verbiage_Fr_RespData = verbiageBuilder("ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
 
 sdk.registerBot(require("./SimpleConversationalBot.js"));
