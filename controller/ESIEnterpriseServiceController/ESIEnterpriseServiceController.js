@@ -9,7 +9,8 @@
 
 
 const MODULE_NAME = 'ESIEnterpriseServiseController';
-const constants = require("../../constants")
+const constants = require("../../constants");
+const ESIEnterpriceService = require("../../service/ESIEnterpriseService");
 
 module.exports = {
     /**
