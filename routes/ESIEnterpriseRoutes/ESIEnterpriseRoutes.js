@@ -20,5 +20,6 @@ router.use(function (req, res, next) {
   next();
 });
 
+router.post("/verbiageBuilder", ESICustomBotActionController.getVerbiageData);
 
 module.exports = router;
