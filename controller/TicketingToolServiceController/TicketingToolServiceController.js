@@ -9,7 +9,7 @@
 
 
 const MODULE_NAME = 'TicketingToolServiceController';
-const constants = require("../../constants")
+const constants = require("../../constants/index");
 
 module.exports = {
     
