@@ -11,6 +11,7 @@
 var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
+const ESIEnterpriseService = require("../../service/ESIEnterpriseService");
 
 router.use(function (req, res, next) {
   res.header(
