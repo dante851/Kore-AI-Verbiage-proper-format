@@ -1,6 +1,6 @@
-global.verbiageRespData = [];
-global.verbiage_En_RespData = [];
-global.verbiage_Fr_RespData = [];
+const verbiageRespData = [];
+const verbiage_En_RespData = [];
+const verbiage_Fr_RespData = [];
 module.exports = {
   serverResponses: {
     default: {
