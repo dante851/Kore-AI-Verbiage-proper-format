@@ -30,7 +30,6 @@ module.exports = {
     let response;
     try {
       const language = req.body.currentLang || "en";
-      response = Object.create(constants.serverResponses.success);
     verbiage_En_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
     verbiage_Fr_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
       const verbiageBuilderData =
@@ -38,9 +37,8 @@ module.exports = {
     //   let result = verbiageBuilderData.filter(
     //     (ele) => ele.RESPONSE_ID === req.body.responseId
     //   );
-      response.body = await ESICustomBotActionService.getVerbiageResponse(
-        verbiageBuilderData
-      );
+      response = Object.create(constants.serverResponses.success);
+      response.body = verbiageBuilderData;
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
       response = Object.create(constants.serverResponses.serverError);
