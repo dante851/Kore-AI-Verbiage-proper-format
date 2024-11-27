@@ -9,7 +9,7 @@
 
 
 const MODULE_NAME = 'JWTAuthServiceController';
-const constants = require("../../constants");
+const constants = require("../../constants/index");
 const JWTAuthService = require("../../service/JWTAuthService");
 
 module.exports = {
