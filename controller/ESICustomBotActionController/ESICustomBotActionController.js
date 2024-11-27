@@ -29,7 +29,7 @@ module.exports = {
     const FUNC_NAME = `getVerbiageData`;
     let response;
     try {
-      const language = req.body.currentLang;
+      const language = req.body.currentLang || "en";
       response = Object.create(constants.serverResponses.success);
     verbiage_En_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
     verbiage_Fr_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
