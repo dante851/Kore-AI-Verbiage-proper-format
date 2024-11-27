@@ -1,5 +1,5 @@
 const { verbiageBuilder } = require("./verbiageBuilder");
-
+const ESICustomBotActionService = require("./service/ESICustomBotActionService");
 module.exports = {
   populateBotResponse: function (
     vbResponse,
@@ -74,8 +74,10 @@ module.exports = {
         return responseId;
     }
   },
-  resetExcelData: function(){
-    verbiage_En_RespData = verbiageBuilder("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
+ resetExcelData: async function () {
+    verbiage_En_RespData = await ESICustomBotActionService.getVerbiageResponse(
+      require("./ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx")
+    );
   }
 };
 function msgTemplate(templateData) {
