@@ -1,5 +1,6 @@
 const { verbiageBuilder } = require("./verbiageBuilder");
 const ESICustomBotActionService = require("./service/ESICustomBotActionService");
+const constants = require('./constants/index');
 module.exports = {
   populateBotResponse: function (
     vbResponse,
@@ -74,10 +75,8 @@ module.exports = {
         return responseId;
     }
   },
- resetExcelData: async function () {
-    verbiage_En_RespData = await ESICustomBotActionService.getVerbiageResponse(
-      require("./ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx")
-    );
+ resetExcelData: function () {
+   constants.verbiage_En_RespData = verbiageBuilder("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
   }
 };
 function msgTemplate(templateData) {
