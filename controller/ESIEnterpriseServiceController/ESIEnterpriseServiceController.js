@@ -12,5 +12,31 @@ const MODULE_NAME = 'ESIEnterpriseServiceController';
 const constants = require("../../constants")
 
 module.exports = {
+    /**
+   * Get the Id details for the given order / Member Id .
+   * @param {*} req  request from route.
+   * @param {*} res response to be send to the api
+   * @returns the response data
+   */
+  async getIdDetails(req, res) {
+    const FUNC_NAME = `getIdDetails`;
+    let response;
     
+    try {
+      response = Object.create(constants.serverResponses.success);
+      if (req.query.orderId && !req.query.memberId) {
+        response.body = await ESIEnterpriceService.getOrderDetails(
+          req.query.orderId
+        );
+      } else if (req.query.memberId) {
+        response.body = await ESIEnterpriceService.getMemberDetails(
+          req.query.memberId
+        );
+      }
+    } catch (e) {
+      logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
+      response = Object.create(constants.serverResponses.serverError);
+    }
+    return res.status(response.status).send(response.body);
+  },
 }
