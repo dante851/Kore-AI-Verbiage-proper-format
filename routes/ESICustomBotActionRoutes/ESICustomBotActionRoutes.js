@@ -8,8 +8,7 @@
  * @author ESI CA Bot Implementation
  */
 
-var express = require("express");
-var router = express.Router();
+const router = require("express").Router();
 var jwt = require("jsonwebtoken");
 const ESICustomBotActionController = require("../../controller/ESICustomBotActionController/ESICustomBotActionController");
 
