@@ -6,6 +6,7 @@ const fs = require("fs");
 const { populateBotResponse } = require("./utility");
 const { resetExcelData } = require("./utility");
 const constants = require('./constants/index');
+const {logger} = require('./winston_config');
 /*
  * This is the most basic example of BotKit.
  *
@@ -38,6 +39,7 @@ module.exports = {
       data.message = "The Bot says hello!";
       console.log("bot message", data.message);
     }
+    logger.info(`${data.message}`);
     console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
