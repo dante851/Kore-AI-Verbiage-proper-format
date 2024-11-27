@@ -11,13 +11,7 @@ const MODULE_NAME = "ESICustomBotActionController";
 const fs = require('fs');
 const constants = require("../../constants/index");
 const ESICustomBotActionService = require("../../service/ESICustomBotActionService");
-// const ENfilePath = '../../ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx';
-// const FRfilePath = '../../ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx';
-const path = require('path');
 
-// Get the directory path
-// const EN_FILE = fs.readFileSync(path.dirname(ENfilePath));
-// const FR_FILE = fs.readFileSync(path.dirname(FRfilePath));
 module.exports = {
   /**
    * Get the Verbiage details from the database.
