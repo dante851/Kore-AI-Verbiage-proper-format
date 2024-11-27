@@ -11,7 +11,7 @@
 var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
-const ESIEnterpriseService = require("../../service/ESIEnterpriseService");
+const ESIEnterpriseServiceController = require("../../controller/ESIEnterpriseServiceController/ESIEnterpriseServiceController");
 
 router.use(function (req, res, next) {
   res.header(
@@ -21,6 +21,6 @@ router.use(function (req, res, next) {
   next();
 });
 
-router.post("/verbiageBuilder", ESICustomBotActionController.getVerbiageData);
+router.get("/getIdDetails", ESIEnterpriseServiceController.getIdDetails);
 
 module.exports = router;
