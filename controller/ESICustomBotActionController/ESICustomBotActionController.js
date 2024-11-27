@@ -8,7 +8,7 @@
  */
 
 const MODULE_NAME = "ESICustomBotActionController";
-const constants = require("../../constants");
+const constants = require("../../constants/index");
 const ESICustomBotActionService = require("../../service/ESICustomBotActionService");
 module.exports = {
   /**
