@@ -37,6 +37,7 @@ module.exports = {
       }
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
+      console.log(e.toString());
       if(e.statusCode === 404){
         response = Object.create(constants.serverResponses.dataNotFound);
       }else{
