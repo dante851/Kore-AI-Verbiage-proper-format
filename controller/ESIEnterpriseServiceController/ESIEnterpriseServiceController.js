@@ -37,7 +37,6 @@ module.exports = {
       }
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
-        console.log("error",e);
       response = Object.create(constants.serverResponses.serverError);
     }
     return res.status(response.status).send(response.body);
