@@ -36,6 +36,13 @@ module.exports = {
         message: "Failed to process the request. Please try again later.",
       },
     },
+    dataNotFound: {
+      status: 404,
+      body: {
+        errorCode: "Data Not Found",
+        message: "Data is not available in the server.",
+      },
+    },
   },
   statusCodes: {
     OK: 200,
@@ -43,6 +50,7 @@ module.exports = {
     BAD_REQUEST: 400,
     UN_AUTHORIZED: 401,
     INTERNAL_SERVER_ERROR: 500,
+    DATA_NOT_FOUND:404,
   },
   errorMessages: {
     USER_DOES_NOT_EXIST: "User account does not exist",
