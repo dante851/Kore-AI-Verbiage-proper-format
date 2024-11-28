@@ -26,6 +26,7 @@ module.exports = {
       response.body = await JWTAuthService.generateToken();
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
+      console.log("error",e.toString())
       if (e.response.status === 404) {
         response = Object.create(constants.serverResponses.dataNotFound);
       } else {
