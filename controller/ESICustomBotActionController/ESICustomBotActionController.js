@@ -8,7 +8,7 @@
  */
 
 const MODULE_NAME = "ESICustomBotActionController";
-const fs = require('fs');
+const fs = require("fs");
 const constants = require("../../constants/index");
 const ESICustomBotActionService = require("../../service/ESICustomBotActionService");
 
@@ -24,18 +24,30 @@ module.exports = {
     let response;
     try {
       const language = req.body.currentLang || "en";
-    verbiage_En_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
-    verbiage_Fr_RespData = await ESICustomBotActionService.getVerbiageResponse("ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx");
+      verbiage_En_RespData =
+        await ESICustomBotActionService.getVerbiageResponse(
+          "ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx"
+        );
+      verbiage_Fr_RespData =
+        await ESICustomBotActionService.getVerbiageResponse(
+          "ESI_PHA_BOT_RESP_BUILDER_FR_CA.xlsx"
+        );
       const verbiageBuilderData =
-        language === "fr" ? constants.verbiage_Fr_RespData : constants.verbiage_En_RespData;
-    //   let result = verbiageBuilderData.filter(
-    //     (ele) => ele.RESPONSE_ID === req.body.responseId
-    //   );
+        language === "fr"
+          ? constants.verbiage_Fr_RespData
+          : constants.verbiage_En_RespData;
+      //   let result = verbiageBuilderData.filter(
+      //     (ele) => ele.RESPONSE_ID === req.body.responseId
+      //   );
       response = Object.create(constants.serverResponses.success);
       response.body = verbiageBuilderData;
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
-      response = Object.create(constants.serverResponses.serverError);
+      if (e.response.status === 404) {
+        response = Object.create(constants.serverResponses.dataNotFound);
+      } else {
+        response = Object.create(constants.serverResponses.serverError);
+      }
     }
     return res.status(response.status).send(response.body);
   },
