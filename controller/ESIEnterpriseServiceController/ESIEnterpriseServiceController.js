@@ -37,7 +37,7 @@ module.exports = {
       }
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
-      response = Object.create(constants.serverResponses.serverError);
+      response = { status: e, body: e };
     }
     return res.status(response.status).send(response.body);
   },
