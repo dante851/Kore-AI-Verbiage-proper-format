@@ -1,3 +1,4 @@
+var jwt = require('jsonwebtoken');
 const config = require("../config.json")
 module.exports = {
   /**
