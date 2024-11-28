@@ -17,7 +17,7 @@
         "payload_class_name"      : "OnHookPayload",
         "callback"                : "on_webhook",
         "sendComponentNameInArgs" : true,
-        "ackImmediately"        :   true,
+        "ackImmediately"        :   false,
         "processResponse"         : true
     },
     "on_agent_transfer": {
