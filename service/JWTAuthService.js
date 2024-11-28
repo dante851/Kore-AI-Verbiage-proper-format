@@ -6,7 +6,7 @@ module.exports = {
    * @param {*} req the request object.
    * @returns the token.
    */
-  async generateToken() {
+  async generateToken(req) {
     var identity = req.body.identity;
     var clientId = req.body.clientId;
     var clientSecret = req.body.clientSecret;

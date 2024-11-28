@@ -23,7 +23,7 @@ module.exports = {
     let response;
     try {
       response = Object.create(constants.serverResponses.success);
-      response.body = await JWTAuthService.generateToken();
+      response.body = await JWTAuthService.generateToken(req);
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
       console.log("error",e.toString())
