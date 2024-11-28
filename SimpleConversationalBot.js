@@ -64,4 +64,9 @@ module.exports = {
     console.log("on_alert -->  : ", data, data.message);
     return sdk.sendAlertMessage(data, callback);
   },
+  on_webhook : function(requestId, data, componentName, callback) {
+    console.log("requestId",requestId)
+    console.log("data",JSON.stringify(data))
+    console.log("componentName",componentName)
+}
 };
