@@ -4,14 +4,16 @@
     },
     "app": {
         "apiPrefix" : "",
-        "url": "https://cai-tripsy-bot.onrender.com"
+        "url": "https://cai-tripsy-bot.onrender.com",
+        "isAnonymous": false
     },
     "validations": {
         "leastNodeVersion": 10
     },
     "credentials": {
         "apikey": "CYomowthMvnX4Bqe2Gc3RfG+M1ng13gfFHPqKdTVq/I=",
-        "appId": "cs-9ea68b61-328e-54ba-b1ac-ccadc15af9e8"
+        "appId": "cs-9ea68b61-328e-54ba-b1ac-ccadc15af9e8",
+        "identity":"balavignesh25@gmail.com"
     },
     "jwt": {
         "jwtAlgorithm": "HS256",

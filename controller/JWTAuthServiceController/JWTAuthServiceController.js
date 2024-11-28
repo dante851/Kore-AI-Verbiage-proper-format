@@ -18,12 +18,12 @@ module.exports = {
    * @param {*} res response to be send to the api
    * @returns the response
    */
-  async getJWTToken(req) {
+  async getJWTToken(req,res) {
     const FUNC_NAME = `getJWTToken`;
     let response;
     try {
       response = Object.create(constants.serverResponses.success);
-      response.body = await JWTAuthService.generateToken(req);
+      response.body = await JWTAuthService.generateToken();
     } catch (e) {
       // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
       if (e.response.status === 404) {
