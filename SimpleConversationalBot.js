@@ -24,6 +24,7 @@ module.exports = {
       data.message = "Hello";
       console.log("user message", data.message);
       console.log("data",JSON.stringify(data));
+      console.log(JSON.stringify(data._originalPayload.channel.botInfo));
       //Sends back 'Hello' to user.
       return sdk.sendUserMessage(data, callback);
     } else if (!data.agent_transfer) {
