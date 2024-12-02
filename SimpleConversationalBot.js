@@ -23,6 +23,7 @@ module.exports = {
     if (data.message === "Hi") {
       data.message = "Hello";
       console.log("user message", data.message);
+      console.log("data",JSON.stringify(data));
       //Sends back 'Hello' to user.
       return sdk.sendUserMessage(data, callback);
     } else if (!data.agent_transfer) {
