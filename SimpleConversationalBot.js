@@ -24,7 +24,8 @@ module.exports = {
       data.message = "Hello";
       console.log("user message", data.message);
       console.log("data",JSON.stringify(data));
-      console.log("botinfo ==> ",JSON.stringify(data._originalPayload.channel.botInfo));
+      console.log("channel ==> ",JSON.stringify(data.channel));
+      console.log("botinfo ==> ",JSON.stringify(data.channel.botInfo));
       //Sends back 'Hello' to user.
       return sdk.sendUserMessage(data, callback);
     } else if (!data.agent_transfer) {
@@ -43,7 +44,7 @@ module.exports = {
       console.log("bot message", data.message);
     }
     logger.info(`${data.message}`);
-    console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
+    // console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
@@ -67,9 +68,4 @@ module.exports = {
     console.log("on_alert -->  : ", data, data.message);
     return sdk.sendAlertMessage(data, callback);
   },
-  on_webhook : function(requestId, data, componentName, callback) {
-    console.log("requestId",requestId)
-    console.log("data",JSON.stringify(data))
-    console.log("componentName",componentName)
-}
 };
