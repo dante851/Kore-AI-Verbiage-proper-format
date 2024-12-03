@@ -22,10 +22,6 @@ module.exports = {
     console.log("user", data.message);
     if (data.message === "Hi") {
       data.message = "Hello";
-      console.log("user message", data.message);
-      console.log("data",JSON.stringify(data));
-      console.log("channel ==> ",JSON.stringify(data.channel));
-      console.log("botinfo ==> ",JSON.stringify(data.channel.botInfo));
       //Sends back 'Hello' to user.
       return sdk.sendUserMessage(data, callback);
     } else if (!data.agent_transfer) {
