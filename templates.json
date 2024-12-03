@@ -1,0 +1,379 @@
+{
+    "textTemplate": {
+        "text": ""
+    },
+    "buttonTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "button",
+            "text": "",
+            "buttons": [
+                {
+                    "type": "",
+                    "title": "",
+                    "payload": ""
+                },
+                {
+                    "type": "",
+                    "title": "",
+                    "payload": ""
+                }
+            ]
+        }
+    },
+    "quickReplyTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "quick_replies",
+            "text": "",
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "",
+                    "payload": "",
+                    "image_url": ""
+                },
+                {
+                    "content_type": "text",
+                    "title": "",
+                    "payload": "",
+                    "image_url": ""
+                }
+            ]
+        }
+    },
+    "listTemplate": {
+        "type": "template",
+        "AlwaysShowGlobalButtons": false,
+        "payload": {
+            "template_type": "list",
+            "elements": [
+                {
+                    "title": "",
+                    "image_url": "",
+                    "subtitle": "",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": ""
+                    },
+                    "buttons": [
+                        {
+                            "title": "",
+                            "type": "web_url",
+                            "url": "",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": ""
+                        }
+                    ]
+                },
+                {
+                    "title": "",
+                    "image_url": "",
+                    "subtitle": "",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": ""
+                    },
+                    "buttons": [
+                        {
+                            "title": "",
+                            "type": "web_url",
+                            "url": "",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": ""
+                        }
+                    ]
+                }
+            ],
+            "buttons": [
+                {
+                    "title": "",
+                    "type": "",
+                    "payload": ""
+                }
+            ]
+        }
+    },
+    "errorTemplate": {
+        "type": "error",
+        "payload": {
+            "color": "#F35A00",
+            "text": ""
+        }
+    },
+    "audioTemplate": {
+        "type": "message",
+        "payload": {
+            "text": "",
+            "audioUrl": ""
+        }
+    },
+    "imageTemplate": {
+        "type": "image",
+        "payload": {
+            "url": ""
+        }
+    },
+    "videoTemplate1": {
+        "type": "video",
+        "payload": {
+            "url": ""
+        }
+    },
+    "videoTemplate2": {
+        "type": "message",
+        "payload": {
+            "text": "video within the assistant window",
+            "videoUrl": ""
+        }
+    },
+    "carousalTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "carousel",
+            "elements": [
+                {
+                    "title": "",
+                    "image_url": "",
+                    "subtitle": "",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": ""
+                    },
+                    "buttons": [
+                        {
+                            "type": "",
+                            "title": "",
+                            "payload": ""
+                        },
+                        {
+                            "type": "",
+                            "title": "",
+                            "payload": ""
+                        }
+                    ]
+                },
+                {
+                    "title": "",
+                    "image_url": "",
+                    "subtitle": "",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": ""
+                    },
+                    "buttons": [
+                        {
+                            "type": "",
+                            "title": "",
+                            "payload": ""
+                        },
+                        {
+                            "type": "",
+                            "title": "",
+                            "payload": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "pieChartTemplate": {
+        "type": "template",
+        "payload": {
+            "text": "",
+            "template_type": "piechart",
+            "pie_type": "regular",
+            "elements": [
+                {
+                    "title": "",
+                    "value": "",
+                    "displayValue": ""
+                },
+                {
+                    "title": "",
+                    "value": "",
+                    "displayValue": ""
+                }
+            ],
+            "speech_hint": ""
+        }
+    },
+    "lineChartTemplate": {
+        "type": "template",
+        "payload": {
+            "text": "",
+            "template_type": "linechart",
+            "X_axis": [],
+            "Auto_adjust_X_axis": "yes",
+            "elements": [
+                {
+                    "title": "",
+                    "values": [],
+                    "displayValues": []
+                },
+                {
+                    "title": "",
+                    "values": [],
+                    "displayValues": []
+                }
+            ],
+            "speech_hint": ""
+        }
+    },
+    "barChartTemplate": {
+        "type": "template",
+        "pay load": {
+            "text": "",
+            "template_type": "barchart",
+            "direction": "vertical",
+            "auto_adjust_X_axis": "no",
+            "stacked": false,
+            "X_axis": [],
+            "Auto_adjust_X_axis": "yes",
+            "elements": [
+                {
+                    "title": "",
+                    "values": [],
+                    "displayValues": []
+                },
+                {
+                    "title": "",
+                    "values": [],
+                    "displayValues": []
+                }
+            ],
+            "speech_hint": ""
+        }
+    },
+    "tableTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "table",
+            "text": "",
+            "columns": [
+                [],
+                [],
+                []
+            ],
+            "table_design": "regular",
+            "elements": [
+                {
+                    "Values": [
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "Values": [
+                        "",
+                        "",
+                        ""
+                    ]
+                }
+            ],
+            "speech_hint": ""
+        }
+    },
+    "miniTableTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "mini_table",
+            "layout": "horizontal",
+            "text": "",
+            "elements": [
+                {
+                    "primary": [
+                        [],
+                        []
+                    ],
+                    "additional": [
+                        [
+                            "",
+                            ""
+                        ],
+                        [
+                            "",
+                            ""
+                        ]
+                    ]
+                },
+                {
+                    "primary": [
+                        [],
+                        []
+                    ],
+                    "additional": [
+                        [
+                            "",
+                            ""
+                        ],
+                        [
+                            "",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "speech_hint": ""
+        }
+    },
+    "dropdownTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "dropdown_template",
+            "heading": "",
+            "elements": [
+                {
+                    "title": "",
+                    "value": ""
+                }
+            ]
+        }
+    },
+    "likeDislikeTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "like_dislike"
+        }
+    },
+    "multiselectTemplate": {
+        "type": "template",
+        "payload": {
+            "template_type": "multi_select",
+            "elements": [
+                {
+                    "title": "",
+                    "value": ""
+                }
+            ],
+            "buttons": [
+                {
+                    "title": "",
+                    "type": "",
+                    "payload": ""
+                }
+            ]
+        }
+    },
+    "datePickerTemplate": {
+        "type": "template",
+        "payload": {
+            "text": "",
+            "template_type": "dateTemplate",
+            "title": "",
+            "text_message": "",
+            "startDate": "",
+            "endDate": "",
+            "format": "MM-DD-YYYY"
+        }
+    }
+}
