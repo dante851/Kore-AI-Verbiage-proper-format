@@ -1,5 +1,4 @@
 const { verbiageBuilder } = require("./verbiageBuilder");
-const ESICustomBotActionService = require("./service/ESICustomBotActionService");
 const constants = require("./constants/index");
 const richCardTemplate = require("./templates.json");
 module.exports = {
@@ -105,5 +104,5 @@ function selectRichCardTemplate(templateTypeFormat,templateData,templatetype) {
       obj.payload = JSON.parse(templateData);
       obj.payload["template_type"] = templatetype.toLowerCase();
       console.log("obj",obj);
-      return obj;
+      return JSON.stringify(obj);
 }
