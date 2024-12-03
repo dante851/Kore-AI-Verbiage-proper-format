@@ -13,9 +13,11 @@ module.exports = {
     let failedEntity = messageDataWithBotUserSession.failedEntity;
     let orderIdInput = "";
     let result = verbiage_builder_resp.filter(
-      (ele) => ele.RESPONSE_ID.trim() === responseId
+      (ele) => ele.RESPONSE_ID === responseId
     );
     //hook to add custom events
+    console.log("res",result);
+    console.log("responseId",responseId);
     switch (responseId) {
       case "ESI_PHA_ORD_INFO_ASK_ORD_TITLE":
         return msgTemplate(result);
@@ -73,7 +75,6 @@ module.exports = {
         return msgTemplate(result);
 
       case "ESI_PHA_ORD_MGMT_ORD_DETAILS_TABLE":
-        console.log("res",result);
         return msgTemplate(result);
 
       default:
