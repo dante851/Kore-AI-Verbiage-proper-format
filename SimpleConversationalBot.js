@@ -19,7 +19,6 @@ module.exports = {
   botName: botName,
 
   on_user_message: function (requestId, data, callback) {
-    console.log("user", data.message);
     if (data.message === "Hi") {
       data.message = "Hello";
       //Sends back 'Hello' to user.
@@ -33,7 +32,6 @@ module.exports = {
     }
   },
   on_bot_message: function (requestId, data, callback) {
-    console.log("data",data)
      resetExcelData();
     if (data.message === "hi") {
       data.message = "The Bot says hello!";
