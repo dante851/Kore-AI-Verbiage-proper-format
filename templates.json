@@ -230,7 +230,7 @@
     },
     "barChartTemplate": {
         "type": "template",
-        "pay load": {
+        "payload": {
             "text": "",
             "template_type": "barchart",
             "direction": "vertical",

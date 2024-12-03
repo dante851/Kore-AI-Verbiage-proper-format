@@ -1,6 +1,7 @@
 const { verbiageBuilder } = require("./verbiageBuilder");
 const ESICustomBotActionService = require("./service/ESICustomBotActionService");
-const constants = require('./constants/index');
+const constants = require("./constants/index");
+const richCardTemplate = require("./templates.json");
 module.exports = {
   populateBotResponse: function (
     vbResponse,
@@ -9,7 +10,7 @@ module.exports = {
   ) {
     const verbiage_builder_resp = vbResponse;
     let entityStatus = messageDataWithBotUserSession.entity_status;
-     let failedEntity = messageDataWithBotUserSession.failedEntity;
+    let failedEntity = messageDataWithBotUserSession.failedEntity;
     let orderIdInput = "";
     let result = verbiage_builder_resp.filter(
       (ele) => ele.RESPONSE_ID === responseId
@@ -21,7 +22,7 @@ module.exports = {
 
       case "ESI_PHA_ORD_INFO_CNFN_MSG":
         return msgTemplate(result);
-        
+
       case "ESI_PHA_ORD_INFO_ASK_ORD_ID":
         return msgTemplate(result);
 
@@ -48,7 +49,7 @@ module.exports = {
           "${member_status}",
           memberIdInput
         );
-         result[0].WEB_RESPONSE_MSG = memberStr;
+        result[0].WEB_RESPONSE_MSG = memberStr;
         return msgTemplate(result);
 
       case "ESI_PHA_ORD_INFO_INVALID_MSG":
@@ -70,42 +71,35 @@ module.exports = {
 
       case "ESI_PHA_ORD_INFO_MAX_NO_ATTEMPTS_MSG":
         return msgTemplate(result);
+      case "ESI_PHA_ORD_MGMT_ORD_DETAILS_TABLE":
+        return msgTemplate(result);
 
       default:
         return responseId;
     }
   },
- resetExcelData: function () {
-   constants.verbiage_En_RespData = verbiageBuilder("ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx");
-  }
+  resetExcelData: function () {
+    constants.verbiage_En_RespData = verbiageBuilder(
+      "ESI_PHA_BOT_RESP_BUILDER_EN_CA.xlsx"
+    );
+  },
 };
 function msgTemplate(templateData) {
   const templateType = templateData[0]?.MEDIA_TYPE;
-  const tableTemplate = templateData[0]?.DATA
-    ? [
-        {
-          type: "text",
-          component: {
-            type: "template",
-            payload: {
-              template_type: "table",
-              ...JSON.parse(templateData[0]?.DATA),
-            },
-          },
-          cInfo: {
-            body: "Account details",
-          },
-        },
-      ]
-    : null;
-
+  const templateData = templateData[0]?.DATA;
   const dafaultTextTemplate = templateData[0]?.WEB_RESPONSE_MSG;
-
   switch (templateType) {
     case "TABLE":
-      return tableTemplate;
+      return selectRichCardTemplate(richCardTemplate.tableTemplate,templateData,templateType)
 
     default:
       return dafaultTextTemplate;
   }
+}
+
+function selectRichCardTemplate(templateTypeFormat,templateData,templatetype) {
+      let obj = templateTypeFormat;
+      obj.payload = templateData;
+      obj.payload["template_type"] = templatetype.toLowerCase();
+      return obj;
 }
