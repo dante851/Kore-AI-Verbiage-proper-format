@@ -43,11 +43,11 @@ module.exports = {
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
       currentLanguage === "fr" ? constants.verbiage_Fr_RespData : constants.verbiage_En_RespData;
-    data.message = populateBotResponse(
-      verbiageBuilderData,
-      data.message,
-      data.context.session.BotUserSession
-    );
+    // data.message = populateBotResponse(
+    //   verbiageBuilderData,
+    //   data.message,
+    //   data.context.session.BotUserSession
+    // );
     console.log("bot message", data.message);
     return sdk.sendUserMessage(data, callback);
   },
