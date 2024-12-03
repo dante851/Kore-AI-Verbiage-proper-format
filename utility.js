@@ -88,28 +88,11 @@ module.exports = {
 };
 function msgTemplate(templateData) {
   const templateType = templateData[0]?.MEDIA_TYPE;
-  const tableTemplate = templateData[0]?.DATA
-    ? [
-        {
-          type: "text",
-          component: {
-            type: "template",
-            payload: {
-              template_type: "table",
-              ...JSON.parse(templateData[0]?.DATA),
-            },
-          },
-          cInfo: {
-            body: "Account details",
-          },
-        },
-      ]
-    : null;
-  // let cardData = templateData[0]?.DATA;
+   let cardData = templateData[0]?.DATA;
   const dafaultTextTemplate = templateData[0]?.WEB_RESPONSE_MSG;
   switch (templateType) {
     case "TABLE":
-      return tableTemplate
+      return selectRichCardTemplate(richCardTemplate.tableTemplate,cardData,templatetype)
 
     default:
       return dafaultTextTemplate;
@@ -118,9 +101,8 @@ function msgTemplate(templateData) {
 
 function selectRichCardTemplate(templateTypeFormat,templateData,templatetype) {
       let obj = templateTypeFormat;
-      let objArr = [];
       obj.payload = JSON.parse(templateData);
       obj.payload["template_type"] = templatetype.toLowerCase();
-      objArr.push(obj);
-      return objArr;
+      console.log("obj",obj);
+      return obj;
 }
