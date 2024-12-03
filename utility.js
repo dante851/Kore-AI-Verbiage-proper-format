@@ -13,7 +13,7 @@ module.exports = {
     let failedEntity = messageDataWithBotUserSession.failedEntity;
     let orderIdInput = "";
     let result = verbiage_builder_resp.filter(
-      (ele) => ele.RESPONSE_ID === responseId
+      (ele) => ele.RESPONSE_ID.trim() === responseId
     );
     //hook to add custom events
     switch (responseId) {
@@ -71,6 +71,7 @@ module.exports = {
 
       case "ESI_PHA_ORD_INFO_MAX_NO_ATTEMPTS_MSG":
         return msgTemplate(result);
+
       case "ESI_PHA_ORD_MGMT_ORD_DETAILS_TABLE":
         console.log("res",result);
         return msgTemplate(result);
