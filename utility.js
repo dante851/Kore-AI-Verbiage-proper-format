@@ -89,7 +89,7 @@ module.exports = {
 function msgTemplate(templateData) {
   const templateType = templateData[0]?.MEDIA_TYPE;
    let cardData = templateData[0]?.DATA;
-
+   
   const dafaultTextTemplate = {
     text: templateData[0].WEB_RESPONSE_MSG,
   };
@@ -108,5 +108,5 @@ function selectRichCardTemplate(templateTypeFormat,templateData,templatetype) {
       obj.payload = JSON.parse(templateData);
       obj.payload["template_type"] = templatetype.toLowerCase();
       console.log("obj",obj);
-      return obj;
+      return JSON.stringify(obj);
 }
