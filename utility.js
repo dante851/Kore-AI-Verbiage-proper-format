@@ -72,7 +72,7 @@ module.exports = {
       case "ESI_PHA_ORD_INFO_MAX_NO_ATTEMPTS_MSG":
         return msgTemplate(result);
       case "ESI_PHA_ORD_MGMT_ORD_DETAILS_TABLE":
-        console.log(result);
+        console.log("res",result);
         return msgTemplate(result);
 
       default:
