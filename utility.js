@@ -86,11 +86,11 @@ module.exports = {
 };
 function msgTemplate(templateData) {
   const templateType = templateData[0]?.MEDIA_TYPE;
-  const templateData = templateData[0]?.DATA;
+  let cardData = templateData[0]?.DATA;
   const dafaultTextTemplate = templateData[0]?.WEB_RESPONSE_MSG;
   switch (templateType) {
     case "TABLE":
-      return selectRichCardTemplate(richCardTemplate.tableTemplate,templateData,templateType)
+      return selectRichCardTemplate(richCardTemplate.tableTemplate,cardData,templateType)
 
     default:
       return dafaultTextTemplate;
