@@ -93,7 +93,7 @@ function msgTemplate(templateData) {
   const dafaultTextTemplate = templateData[0]?.WEB_RESPONSE_MSG;
   switch (templateType) {
     case "TABLE":
-      return selectRichCardTemplate(richCardTemplate.tableTemplate,cardData,templatetype)
+      return selectRichCardTemplate(richCardTemplate.tableTemplate,cardData,templateType)
 
     default:
       return dafaultTextTemplate;
