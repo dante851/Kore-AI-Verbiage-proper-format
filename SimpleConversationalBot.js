@@ -43,11 +43,36 @@ module.exports = {
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
       currentLanguage === "fr" ? constants.verbiage_Fr_RespData : constants.verbiage_En_RespData;
-    data.message = populateBotResponse(
-      verbiageBuilderData,
-      data.message,
-      data.context.session.BotUserSession
-    );
+    // data.message = populateBotResponse(
+    //   verbiageBuilderData,
+    //   data.message,
+    //   data.context.session.BotUserSession
+    // );
+    const messagePayload = {
+      "type": "template",
+      "payload": {
+        "template_type": "button", // Specify the template type (e.g., button, list)
+        "text": "This is an example of a button rich card.", // Main text content
+        "buttons": [
+          {
+            "type": "postback", // Button type (e.g., postback, url)
+            "title": "Yes", // Button title
+            "payload": "Yes" // Data sent back on button click
+          },
+          {
+            "type": "postback",
+            "title": "No",
+            "payload": "No"
+          }
+        ]
+      }
+    };
+
+    data.overrideMessagePayload = {
+      body: JSON.stringify(messagePayload),
+      isTemplate: true
+    };
+    console.log("overrideMessagePayload", data.overrideMessagePayload);
     console.log("bot message", data.message);
     return sdk.sendUserMessage(data, callback);
   },
