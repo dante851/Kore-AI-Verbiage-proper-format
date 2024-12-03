@@ -100,7 +100,9 @@ function msgTemplate(templateData) {
 
 function selectRichCardTemplate(templateTypeFormat,templateData,templatetype) {
       let obj = templateTypeFormat;
+      let objArr = [];
       obj.payload = JSON.parse(templateData);
       obj.payload["template_type"] = templatetype.toLowerCase();
-      return [...obj];
+      objArr.push(obj);
+      return objArr;
 }
