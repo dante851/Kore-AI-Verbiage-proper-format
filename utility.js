@@ -87,11 +87,28 @@ module.exports = {
 };
 function msgTemplate(templateData) {
   const templateType = templateData[0]?.MEDIA_TYPE;
-  let cardData = templateData[0]?.DATA;
+  const tableTemplate = templateData[0]?.DATA
+    ? [
+        {
+          type: "text",
+          component: {
+            type: "template",
+            payload: {
+              template_type: "table",
+              ...JSON.parse(templateData[0]?.DATA),
+            },
+          },
+          cInfo: {
+            body: "Account details",
+          },
+        },
+      ]
+    : null;
+  // let cardData = templateData[0]?.DATA;
   const dafaultTextTemplate = templateData[0]?.WEB_RESPONSE_MSG;
   switch (templateType) {
     case "TABLE":
-      return selectRichCardTemplate(richCardTemplate.tableTemplate,cardData,templateType)
+      return tableTemplate
 
     default:
       return dafaultTextTemplate;
