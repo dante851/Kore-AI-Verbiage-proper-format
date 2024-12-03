@@ -72,6 +72,7 @@ module.exports = {
       case "ESI_PHA_ORD_INFO_MAX_NO_ATTEMPTS_MSG":
         return msgTemplate(result);
       case "ESI_PHA_ORD_MGMT_ORD_DETAILS_TABLE":
+        console.log(result);
         return msgTemplate(result);
 
       default:
@@ -101,5 +102,5 @@ function selectRichCardTemplate(templateTypeFormat,templateData,templatetype) {
       let obj = templateTypeFormat;
       obj.payload = JSON.parse(templateData);
       obj.payload["template_type"] = templatetype.toLowerCase();
-      return obj;
+      return [...obj];
 }
