@@ -10,6 +10,7 @@
 
 const router = require("express").Router();
 var jwt = require("jsonwebtoken");
+const TicketingToolServiceController = require("../../controller/TicketingToolServiceController/TicketingToolServiceController");
 
 router.use(function (req, res, next) {
   res.header(
@@ -18,5 +19,8 @@ router.use(function (req, res, next) {
   );
   next();
 });
+
+
+router.get("/ticket", TicketingToolServiceController.getTicket);
 
 module.exports = router;

@@ -13,4 +13,8 @@ const constants = require("../../constants/index");
 
 module.exports = {
     
+    async getTicket(){
+       const ticketurl = process.env.ESI_WRAPPER_TICKETING_TOOL_SERVICE_URL;
+       console.log(ticketurl);
+    }
 }
