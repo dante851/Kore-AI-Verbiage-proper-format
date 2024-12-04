@@ -10,11 +10,13 @@
 
 const MODULE_NAME = 'TicketingToolServiceController';
 const constants = require("../../constants/index");
+const dotenv = require("dotenv")
+dotenv.config()
 
 module.exports = {
     
     async getTicket(){
-       const ticketurl = process.env.ESI_WRAPPER_TICKETING_TOOL_SERVICE_URL;
-       console.log(ticketurl);
+       let ticketurl = process.env.ESI_WRAPPER_TICKETING_TOOL_SERVICE_URL;
+       console.log("ticket url",ticketurl);
     }
 }
