@@ -139,7 +139,7 @@ function selectRichCardTemplate(
         }
     });
     console.log("quickreplyData",quickreplyData);
-    obj.payload["quick_replies"] = JSON.parse(quickreplyData);
+    obj.payload["quick_replies"] = quickreplyData;
     obj.payload["template_type"] = templatetype.toLowerCase();
     obj.payload["text"] = "Do You need to see the order Id Details?"
     console.log("obj",obj);
