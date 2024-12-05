@@ -35,7 +35,7 @@ module.exports = {
       data.message = "The Bot says hello!";
       console.log("bot message", data.message);
     }
-    log.info(`${data.message}`);
+    data.message !== undefined ? log.info(`${data.message}`) : log.info(`message under progress`) ;
     // console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
