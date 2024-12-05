@@ -129,7 +129,7 @@ function selectRichCardTemplate(
     return JSON.stringify(obj);
   } else if (templatetype === "QUICK_REPLIES") {
     let obj = templateTypeFormat;
-    let resultData = JSON.parse(templateData);
+    let resultData = templateData;
     let quickreplyData = resultData.map((ele) => {
       return {
           content_type: "text",
@@ -139,7 +139,7 @@ function selectRichCardTemplate(
         }
     });
     console.log("quickreplyData",quickreplyData);
-    obj.payload = quickreplyData;
+    obj.payload = JSON.parse(quickreplyData);
     obj.payload["template_type"] = templatetype.toLowerCase();
     obj.payload["text"] = "Do You need to see the order Id Details?"
     console.log("obj",obj);
