@@ -23,6 +23,12 @@ log: function (logLevel, currentFileName, currentMethodName, logText) {
 // module.exports = logger;
 }
 
+// Define the log format
+const logFormat = printf(({ level, message, timestamp }) => {
+  return `${timestamp} [${level}]: ${message}`;
+});
+
+
 // Create the logger
 const logger = createLogger({
   level: "info", // Set the default logging level
@@ -38,16 +44,12 @@ const logger = createLogger({
   ],
 });
 
-// // Define the log format
-// const logFormat = printf(({ level, message, timestamp }) => {
-//   return `${timestamp} [${level}]: ${message}`;
-// });
 
-// // Add console transport for development
-// if (process.env.NODE_ENV !== "production") {
-//   logger.add(
-//     new transports.Console({
-//       format: combine(timestamp(), logFormat),
-//     })
-//   );
-// }
+// Add console transport for development
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new transports.Console({
+      format: combine(timestamp(), logFormat),
+    })
+  );
+}
