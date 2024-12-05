@@ -15,8 +15,8 @@ module.exports = {
       (ele) => ele.RESPONSE_ID === responseId
     );
     //hook to add custom events
-    console.log("res",result);
-    console.log("responseId",responseId);
+    console.log("res", result);
+    console.log("responseId", responseId);
     switch (responseId) {
       case "ESI_PHA_ORD_INFO_ASK_ORD_TITLE":
         return msgTemplate(result);
@@ -76,6 +76,9 @@ module.exports = {
       case "ESI_PHA_ORD_MGMT_ORD_DETAILS_TABLE":
         return msgTemplate(result);
 
+      case "ESI_PHA_ORD_MGMT_ORD_DETAILS_QR":
+        return msgTemplate(result);
+
       default:
         return responseId;
     }
@@ -88,25 +91,43 @@ module.exports = {
 };
 function msgTemplate(templateData) {
   const templateType = templateData[0]?.MEDIA_TYPE;
-   let cardData = templateData[0]?.DATA;
-   
+  let cardData = templateData[0]?.DATA;
+
   const dafaultTextTemplate = {
     text: templateData[0].WEB_RESPONSE_MSG,
   };
 
   switch (templateType) {
     case "TABLE":
-      return selectRichCardTemplate(richCardTemplate.tableTemplate,cardData,templateType)
+      return selectRichCardTemplate(
+        richCardTemplate.tableTemplate,
+        cardData,
+        templateType
+      );
+    case "QUICK_REPLIES":
+      return selectRichCardTemplate(
+        richCardTemplate.quickReplyTemplate,
+        cardData,
+        templateType
+      );
 
     default:
       return dafaultTextTemplate;
   }
 }
 
-function selectRichCardTemplate(templateTypeFormat,templateData,templatetype) {
-      let obj = templateTypeFormat;
-      obj.payload = JSON.parse(templateData);
-      obj.payload["template_type"] = templatetype.toLowerCase();
-      console.log("obj",obj);
-      return JSON.stringify(obj);
+function selectRichCardTemplate(
+  templateTypeFormat,
+  templateData,
+  templatetype
+) {
+  if (templatetype === "TABLE") {
+    let obj = templateTypeFormat;
+    obj.payload = JSON.parse(templateData);
+    obj.payload["template_type"] = templatetype.toLowerCase();
+    console.log("obj", obj);
+    return JSON.stringify(obj);
+  } else if (templatetype === "QUICK_REPLIES") {
+    console.log("quick reply");
+  }
 }
