@@ -48,6 +48,6 @@ logger.info("This is an info message");
 logger.warn("This is a warning message");
 logger.error("This is an error message");
 
-module.exports = logger;
+// module.exports = logger;
 
 module.exports = log;
