@@ -107,7 +107,7 @@ function msgTemplate(templateData) {
     case "QUICK_REPLIES":
       return selectRichCardTemplate(
         richCardTemplate.quickReplyTemplate,
-        cardData,
+        templateData,
         templateType
       );
 
