@@ -1,7 +1,7 @@
 const constants = require("../constants");
 
 module.exports = {
-  async validateAPIkey(req, res) {
+  async validateAPIkey(req, res,next) {
     const apiKey = req.headers["ESI_WRAPPER_SERVICE_API_KEY"] || "";
     if (apiKey === process.env.ESI_WRAPPER_SERVICE_API_KEY) {
       return next();
