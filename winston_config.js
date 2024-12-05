@@ -14,34 +14,6 @@ log: function (logLevel, currentFileName, currentMethodName, logText) {
   else console.log("else");
 }
 
-// // Define the log format
-// const logFormat = printf(({ level, message, timestamp }) => {
-//   return `${timestamp} [${level}]: ${message}`;
-// });
-
-// // Create the logger
-// const logger = createLogger({
-//   level: "info", // Set the default logging level
-//   format: combine(timestamp(), logFormat),
-//   transports: [
-//     new DailyRotateFile({
-//       filename: "logs/app-%DATE%.log", // Log file name pattern
-//       datePattern: "YYYY-MM-DD", // Daily rotation based on date
-//       zippedArchive: true, // Optionally compress the logs
-//       maxSize: "20m", // Maximum size of the log file before rotation
-//       maxFiles: "14d", // Keep logs for the last 14 days
-//     }),
-//   ],
-// });
-
-// // Add console transport for development
-// if (process.env.NODE_ENV !== "production") {
-//   logger.add(
-//     new transports.Console({
-//       format: combine(timestamp(), logFormat),
-//     })
-//   );
-// }
 
 // Example usage
 // logger.info("This is an info message");
@@ -50,3 +22,31 @@ log: function (logLevel, currentFileName, currentMethodName, logText) {
 
 // module.exports = logger;
 }
+
+// Create the logger
+const logger = createLogger({
+  level: "info", // Set the default logging level
+  format: combine(timestamp(), logFormat),
+  transports: [
+    new DailyRotateFile({
+      filename: "logs/app-%DATE%.log", // Log file name pattern
+      datePattern: "YYYY-MM-DD", // Daily rotation based on date
+      zippedArchive: true, // Optionally compress the logs
+      maxSize: "20m", // Maximum size of the log file before rotation
+      maxFiles: "14d", // Keep logs for the last 14 days
+    }),
+  ],
+});
+
+// Add console transport for development
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new transports.Console({
+      format: combine(timestamp(), logFormat),
+    })
+  );
+}
+// Define the log format
+const logFormat = printf(({ level, message, timestamp }) => {
+  return `${timestamp} [${level}]: ${message}`;
+});
