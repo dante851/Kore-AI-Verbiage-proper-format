@@ -128,6 +128,20 @@ function selectRichCardTemplate(
     console.log("obj", obj);
     return JSON.stringify(obj);
   } else if (templatetype === "QUICK_REPLIES") {
-    console.log("quick reply");
+    let obj = templateTypeFormat;
+    let quickreplyData = templateData.map((ele) => {
+      return {
+          content_type: "text",
+          title: ele.BUTTON_LABEL,
+          payload: ele.BUTTON_ID,
+          image_url: "",
+        }
+    });
+    console.log("quickreplyData",quickreplyData);
+    obj.payload = JSON.parse(quickreplyData);
+    obj.payload["template_type"] = templatetype.toLowerCase();
+    obj.payload["text"] = "Do You need to see the order Id Details?"
+    console.log("obj",obj);
+    return JSON.stringify(obj);
   }
 }
