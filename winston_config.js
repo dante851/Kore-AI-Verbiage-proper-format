@@ -38,16 +38,16 @@ const logger = createLogger({
   ],
 });
 
-// Define the log format
-const logFormat = printf(({ level, message, timestamp }) => {
-  return `${timestamp} [${level}]: ${message}`;
-});
+// // Define the log format
+// const logFormat = printf(({ level, message, timestamp }) => {
+//   return `${timestamp} [${level}]: ${message}`;
+// });
 
-// Add console transport for development
-if (process.env.NODE_ENV !== "production") {
-  logger.add(
-    new transports.Console({
-      format: combine(timestamp(), logFormat),
-    })
-  );
-}
+// // Add console transport for development
+// if (process.env.NODE_ENV !== "production") {
+//   logger.add(
+//     new transports.Console({
+//       format: combine(timestamp(), logFormat),
+//     })
+//   );
+// }
