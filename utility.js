@@ -110,7 +110,7 @@ function msgTemplate(templateData) {
       );
 
     default:
-      return JSON.stringify(dafaultTextTemplate);
+      return dafaultTextTemplate;
   }
 }
 
