@@ -35,7 +35,9 @@ module.exports = {
       data.message = "The Bot says hello!";
       console.log("bot message", data.message);
     }
-    data.message !== undefined ? logFn.info(`${data.message}`) : logFn.info(`message under progress`) ;
+    logFn('info', __filename, 'on_bot_message', data.message);
+    logFn('error', __filename, 'on_bot_message', data.message);
+    logFn('warn', __filename, 'on_bot_message', data.message);
     // console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
