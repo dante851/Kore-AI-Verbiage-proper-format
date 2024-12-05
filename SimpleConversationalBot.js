@@ -1,12 +1,10 @@
 var botId = "st-ae29b86a-53b5-570a-93b9-7fdb0510f76d";
 var botName = "ordermanage";
 var sdk = require("./lib/sdk");
-const xlsx = require("node-xlsx").default;
-const fs = require("fs");
 const { populateBotResponse } = require("./utility");
 const { resetExcelData } = require("./utility");
 const constants = require('./constants/index');
-const {log} = require('./winston_config');
+const {logFn} = require('./winston_config');
 /*
  * This is the most basic example of BotKit.
  *
@@ -37,7 +35,7 @@ module.exports = {
       data.message = "The Bot says hello!";
       console.log("bot message", data.message);
     }
-    log.info(`${data.message}`);
+    logFn.info(`${data.message}`);
     // console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
