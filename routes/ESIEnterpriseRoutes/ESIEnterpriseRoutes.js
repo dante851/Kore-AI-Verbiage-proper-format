@@ -11,6 +11,7 @@
 const router = require("express").Router();
 var jwt = require("jsonwebtoken");
 const ESIEnterpriseServiceController = require("../../controller/ESIEnterpriseServiceController/ESIEnterpriseServiceController");
+const apiValidation = require("../../validation/validation");
 
 router.use(function (req, res, next) {
   res.header(
@@ -20,6 +21,10 @@ router.use(function (req, res, next) {
   next();
 });
 
-router.get("/getIdDetails", ESIEnterpriseServiceController.getIdDetails);
+router.get(
+  "/getIdDetails",
+  apiValidation.validateAPIkey,
+  ESIEnterpriseServiceController.getIdDetails
+);
 
 module.exports = router;
