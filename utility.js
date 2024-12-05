@@ -129,7 +129,7 @@ function selectRichCardTemplate(
     return JSON.stringify(obj);
   } else if (templatetype === "QUICK_REPLIES") {
     let obj = templateTypeFormat;
-    let quickreplyData = templateData.map((ele) => {
+    let quickreplyData = JSON.parse(templateData).map((ele) => {
       return {
           content_type: "text",
           title: ele.BUTTON_LABEL,
