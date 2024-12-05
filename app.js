@@ -6,6 +6,9 @@ var app = new Application(null, config);
 var server = new Server(config, app);
 const {verbiageBuilder} = require("./verbiageBuilder");
 const constants = require('./constants/index');
+const dotenv = require("dotenv")
+dotenv.config()
+process.env.NODE_ENV = 'dev';
 sdk.checkNodeVersion();
 server.start();
 

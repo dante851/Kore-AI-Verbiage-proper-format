@@ -81,6 +81,9 @@
   },
   "scripts": {
     "start": "node app.js",
+    "start-dev": "NODE_ENV=dev node app.js",
+    "start-qa": "NODE_ENV=qa node app.js",
+    "start-prod": "NODE_ENV=prod node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
