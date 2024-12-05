@@ -3,7 +3,7 @@ const { combine, timestamp, printf } = format;
 const DailyRotateFile = require("winston-daily-rotate-file");
 module.exports = {
 //create function
-log: function (logLevel, currentFileName, currentMethodName, logText) {
+logFn: function (logLevel, currentFileName, currentMethodName, logText) {
   let logMsg = ` ${currentFileName} --> ${currentMethodName} : ${logText}`;
   console.log("log initiated");
   if (logLevel === "info") {

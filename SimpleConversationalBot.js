@@ -4,7 +4,7 @@ var sdk = require("./lib/sdk");
 const { populateBotResponse } = require("./utility");
 const { resetExcelData } = require("./utility");
 const constants = require('./constants/index');
-const {log} = require('./winston_config');
+const {logFn} = require('./winston_config');
 /*
  * This is the most basic example of BotKit.
  *
@@ -35,7 +35,7 @@ module.exports = {
       data.message = "The Bot says hello!";
       console.log("bot message", data.message);
     }
-    data.message !== undefined ? log.info(`${data.message}`) : log.info(`message under progress`) ;
+    data.message !== undefined ? logFn.info(`${data.message}`) : logFn.info(`message under progress`) ;
     // console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
