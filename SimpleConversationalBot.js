@@ -3,8 +3,8 @@ var botName = "ordermanage";
 var sdk = require("./lib/sdk");
 const { populateBotResponse } = require("./utility");
 const { resetExcelData } = require("./utility");
-const constants = require('./constants/index');
-const {logFn} = require('./winston_config');
+const constants = require("./constants/index");
+const { logFn } = require("./winston_config");
 /*
  * This is the most basic example of BotKit.
  *
@@ -30,29 +30,32 @@ module.exports = {
     }
   },
   on_bot_message: function (requestId, data, callback) {
-     resetExcelData();
+    resetExcelData();
     if (data.message === "hi") {
       data.message = "The Bot says hello!";
       console.log("bot message", data.message);
     }
-    logFn('info', __filename, 'on_bot_message', data.message);
-    logFn('error', __filename, 'on_bot_message', data.message);
-    logFn('warn', __filename, 'on_bot_message', data.message);
+    logFn("info", __filename, "on_bot_message", data.message);
+    logFn("error", __filename, "on_bot_message", data.message);
+    logFn("warn", __filename, "on_bot_message", data.message);
     // console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
-      currentLanguage === "fr" ? constants.verbiage_Fr_RespData : constants.verbiage_En_RespData;
+      currentLanguage === "fr"
+        ? constants.verbiage_Fr_RespData
+        : constants.verbiage_En_RespData;
     data.message = populateBotResponse(
       verbiageBuilderData,
       data.message,
       data.context.session.BotUserSession
     );
-    
-    data.overrideMessagePayload = {
-      body: JSON.stringify(data.message),
-      isTemplate: true
-    };
+    typeof data.message === "obj"
+      ? (data.overrideMessagePayload = {
+          body: JSON.stringify(data.message),
+          isTemplate: true,
+        })
+      : data.message;
     console.log("overrideMessagePayload", data.overrideMessagePayload);
     console.log("bot message", data.message);
     return sdk.sendUserMessage(data, callback);

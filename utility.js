@@ -93,9 +93,7 @@ function msgTemplate(templateData) {
   const templateType = templateData[0]?.MEDIA_TYPE;
   let cardData = templateData[0]?.DATA;
 
-  const dafaultTextTemplate = {
-    text: templateData[0].WEB_RESPONSE_MSG,
-  };
+  const dafaultTextTemplate = templateData[0].WEB_RESPONSE_MSG;
 
   switch (templateType) {
     case "TABLE":
