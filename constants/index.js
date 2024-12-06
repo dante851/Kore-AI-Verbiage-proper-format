@@ -26,7 +26,7 @@ module.exports = {
       status: 401,
       body: {
         errorCode: "Unauthorized",
-        message: "",
+        message: "Access Denied. You have passed Invalid API key.",
       },
     },
     serverError: {
