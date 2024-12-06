@@ -58,9 +58,8 @@ module.exports = {
   } catch (e) {
      delete data.overrideMessagePayload;
   }
-    console.log("overrideMessagePayload", data.overrideMessagePayload);
-    console.log("bot message", data.message);
-    
+  logFn("info", __filename, "overrideMessagePayload", data.overrideMessagePayload);
+
     return sdk.sendUserMessage(data, callback);
   },
   on_agent_transfer: function (requestId, data, callback) {

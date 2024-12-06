@@ -10,6 +10,7 @@
 const MODULE_NAME = "JWTAuthServiceController";
 const constants = require("../../constants/index");
 const JWTAuthService = require("../../service/JWTAuthService");
+const { logFn } = require("../../winston_config");
 
 module.exports = {
   /**
@@ -25,8 +26,7 @@ module.exports = {
       response = Object.create(constants.serverResponses.success);
       response.body = await JWTAuthService.generateToken(req);
     } catch (e) {
-      // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
-      console.log("error",e.toString())
+      logFn("error", __filename, `${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
       response = Object.create(constants.serverResponses.serverError);
     }
     return res.status(response.status).send(response.body);

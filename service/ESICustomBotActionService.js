@@ -24,7 +24,6 @@ module.exports = {
       });
 
       verbiageResponse.push(...sheetData);
-      console.log("verbiageResponse", verbiageResponse);
     }
     return verbiageResponse;
   },

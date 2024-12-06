@@ -8,9 +8,9 @@
  */
 
 const MODULE_NAME = "ESICustomBotActionController";
-const fs = require("fs");
 const constants = require("../../constants/index");
 const ESICustomBotActionService = require("../../service/ESICustomBotActionService");
+const { logFn } = require("../../winston_config");
 
 module.exports = {
   /**
@@ -42,7 +42,7 @@ module.exports = {
       response = Object.create(constants.serverResponses.success);
       response.body = verbiageBuilderData;
     } catch (e) {
-      // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
+      logFn("error", __filename, `${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
       if (e.response.status === 404) {
         response = Object.create(constants.serverResponses.dataNotFound);
       } else {

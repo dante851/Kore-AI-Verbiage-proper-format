@@ -10,6 +10,7 @@
 const MODULE_NAME = "ESIEnterpriseServiceController";
 const constants = require("../../constants/index");
 const ESIEnterpriceService = require("../../service/ESIEnterpriseService");
+const { logFn } = require("../../winston_config");
 
 module.exports = {
   /**
@@ -35,7 +36,7 @@ module.exports = {
         );
       }
     } catch (e) {
-      // logger.error(`${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
+      logFn("error", __filename, `${MODULE_NAME} :: ${FUNC_NAME} :: `, e);
       if (e.response.status === 404) {
         response = Object.create(constants.serverResponses.dataNotFound);
       } else {

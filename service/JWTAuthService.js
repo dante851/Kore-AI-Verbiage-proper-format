@@ -1,5 +1,7 @@
 var jwt = require("jsonwebtoken");
-const config = require("../config.json");
+const dotenv = require("dotenv");
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+
 module.exports = {
   /**
    * Create the JWT Token using the required details.
@@ -11,7 +13,7 @@ module.exports = {
     var clientId = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var isAnonymous = req.body.isAnonymous || false;
-    var aud = req.body.aud || "https://idproxy.kore.com/authorize";
+    var aud = req.body.aud || process.env.KORE_AI_TOKEN_GENERATION_URL;
 
     var options = {
       iat: new Date().getTime(),

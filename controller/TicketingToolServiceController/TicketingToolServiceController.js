@@ -15,9 +15,7 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 module.exports = {
     
-    async getTicket(){
-       let ticketurl = process.env.ESI_WRAPPER_TICKETING_TOOL_SERVICE_URL;
-       console.log("ticket url",ticketurl);
-       console.log(`./.env.${process.env.NODE_ENV}`)
+    async getTicket(){ 
+        
     }
 }
