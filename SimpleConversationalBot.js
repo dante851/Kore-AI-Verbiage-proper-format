@@ -33,12 +33,11 @@ module.exports = {
     resetExcelData();
     if (data.message === "hi") {
       data.message = "The Bot says hello!";
-      console.log("bot message", data.message);
     }
     logFn("info", __filename, "on_bot_message", data.message);
     logFn("error", __filename, "on_bot_message", data.message);
     logFn("warn", __filename, "on_bot_message", data.message);
-    // console.log("verbiage_builder_resp", constants.verbiage_En_RespData);
+
     //Sends back the message to user
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
@@ -61,6 +60,7 @@ module.exports = {
   }
     console.log("overrideMessagePayload", data.overrideMessagePayload);
     console.log("bot message", data.message);
+    
     return sdk.sendUserMessage(data, callback);
   },
   on_agent_transfer: function (requestId, data, callback) {

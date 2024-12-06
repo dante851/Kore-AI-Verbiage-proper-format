@@ -15,8 +15,6 @@ module.exports = {
       (ele) => ele.RESPONSE_ID === responseId
     );
     //hook to add custom events
-    console.log("res", result);
-    console.log("responseId", responseId);
     switch (responseId) {
       case "ESI_PHA_ORD_INFO_ASK_ORD_TITLE":
         return msgTemplate(result);
@@ -79,6 +77,9 @@ module.exports = {
       case "ESI_PHA_ORD_MGMT_ORD_DETAILS_QR":
         return msgTemplate(result);
 
+      case "ESI_PHA_ORD_INFO_UNAUTHORIZED_ACCESS_MSG":
+        return msgTemplate(result);
+        
       default:
         return responseId;
     }
@@ -123,24 +124,21 @@ function selectRichCardTemplate(
     let obj = templateTypeFormat;
     obj.payload = JSON.parse(templateData);
     obj.payload["template_type"] = templatetype.toLowerCase();
-    console.log("obj", obj);
     return JSON.stringify(obj);
   } else if (templatetype === "QUICK_REPLIES") {
     let obj = templateTypeFormat;
     let resultData = templateData;
     let quickreplyData = resultData.map((ele) => {
       return {
-          content_type: "text",
-          title: ele.BUTTON_LABEL,
-          payload: ele.BUTTON_ID,
-          image_url: "",
-        }
+        content_type: "text",
+        title: ele.BUTTON_LABEL,
+        payload: ele.BUTTON_ID,
+        image_url: "",
+      };
     });
-    console.log("quickreplyData",quickreplyData);
     obj.payload["quick_replies"] = quickreplyData;
     obj.payload["template_type"] = templatetype.toLowerCase();
-    obj.payload["text"] = "Do You need to see the order Id Details?"
-    console.log("obj",obj);
+    obj.payload["text"] = "Do You need to see the order Id Details?";
     return JSON.stringify(obj);
   }
 }
