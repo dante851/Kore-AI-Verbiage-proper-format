@@ -50,13 +50,16 @@ module.exports = {
       data.message,
       data.context.session.BotUserSession
     );
-    if (typeof data.message === "obj"){
+    try {
+      const parsedMessage = JSON.parse(data.message);
       data.overrideMessagePayload = {
-        body: JSON.stringify(data.message),
-        isTemplate: true,
-      }
-      console.log("overrideMessagePayload", data.overrideMessagePayload);
-    }
+          body: JSON.stringify(parsedMessage),
+          isTemplate: true,
+      };
+  } catch (e) {
+     delete data.overrideMessagePayload;
+  }
+    console.log("overrideMessagePayload", data.overrideMessagePayload);
     console.log("bot message", data.message);
     return sdk.sendUserMessage(data, callback);
   },
