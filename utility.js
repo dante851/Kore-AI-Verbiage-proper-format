@@ -79,6 +79,21 @@ module.exports = {
 
       case "ESI_PHA_ORD_INFO_UNAUTHORIZED_ACCESS_MSG":
         return msgTemplate(result);
+
+      case "ESI_PHA_ORD_INFO_FAQ_CHARGED_FOR_ORDER";
+        return msgTemplate(result);
+        
+      case "ESI_PHA_ORD_INFO_FAQ_WHERE_TO_FIND_PRESCRIPTION_ID_CARD";
+        return msgTemplate(result);
+        
+      case "ESI_PHA_ORD_INFO_FAQ_HOW_TO_CREATE_ONLINE_ACCOUNT";
+        return msgTemplate(result);
+        
+      case "ESI_PHA_ORD_INFO_FAQ_HOW_GET_ALL_MY_MEDICATIONS_AT_HOME_DELIVERY";
+        return msgTemplate(result);
+      
+      case "ESI_PHA_ORD_INFO_FAQ_WHAT_TEMPERATURE-SENSITIVE_MEDICATION";
+        return msgTemplate(result);
         
       default:
         return responseId;
