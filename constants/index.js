@@ -26,7 +26,7 @@ module.exports = {
       status: 401,
       body: {
         errorCode: "Unauthorized",
-        message: "Access Denied. You have passed Invalid Credentials.",
+        message: "Unfortunately, you do not have the necessary permissions to access this resource. Please ensure you are logged in with the correct credentials. If you continue to experience issues, please contact support.",
       },
     },
     serverError: {
