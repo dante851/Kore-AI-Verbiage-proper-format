@@ -22,7 +22,7 @@ module.exports = {
       switch (responseId) {
         case "ESI_PHA_ORD_INFO_ORD_ID_RESP":
           orderIdInput = entityStatus;
-          let str = resultCopy[0][0].WEB_RESPONSE_MSG.replaceAll(
+          let str = resultCopy[0].WEB_RESPONSE_MSG.replaceAll(
             "${order_status}",
             orderIdInput
           );
@@ -31,20 +31,20 @@ module.exports = {
 
         case "ESI_PHA_ORD_INFO_MEMBER_ID_RESP":
           let memberIdInput = entityStatus;
-          let memberStr = resultCopy[0][0].WEB_RESPONSE_MSG.replaceAll(
+          let memberStr = resultCopy[0].WEB_RESPONSE_MSG.replaceAll(
             "${member_status}",
             memberIdInput
           );
-          resultCopy[0][0].WEB_RESPONSE_MSG = memberStr;
+          resultCopy[0].WEB_RESPONSE_MSG = memberStr;
           return msgTemplate(result);
 
         case "ESI_PHA_ORD_INFO_INVALID_MSG":
           if (failedEntity !== null) {
-            let failedEntityInputStr = resultCopy[0][0].WEB_RESPONSE_MSG.replaceAll(
+            let failedEntityInputStr = resultCopy[0].WEB_RESPONSE_MSG.replaceAll(
               "${dynamic_entity}",
               failedEntity
             );
-            resultCopy[0][0].WEB_RESPONSE_MSG = failedEntityInputStr;
+            resultCopy[0].WEB_RESPONSE_MSG = failedEntityInputStr;
             return msgTemplate(result);
           }
           break;
