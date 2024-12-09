@@ -26,7 +26,7 @@ module.exports = {
       status: 401,
       body: {
         errorCode: "Unauthorized",
-        message: "Access Denied. Please ensure you are logged in with the correct credentials.",
+        message: "Something Went Wrong. Please ensure you are logged in with the correct credentials.",
       },
     },
     serverError: {
