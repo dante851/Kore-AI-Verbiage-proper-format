@@ -15,7 +15,7 @@ module.exports = {
       (ele) => ele.RESPONSE_ID.trim() === responseId
     );
     let resultCopy = [];
-    resultCopy = [...result];
+    resultCopy = Object.freeze([...result]);
     console.log("result copy",resultCopy);
     // Custom Bot Responses Condition
     if (responseId.startsWith("ESI_PHA_ORD_INFO")) {
