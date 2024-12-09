@@ -1,13 +1,8 @@
-// const verbiageRespData = [];
-// const verbiage_En_RespData = [];
-// const verbiage_Fr_RespData = [];
+const verbiageRespData = [];
+const verbiage_En_RespData = [];
+const verbiage_Fr_RespData = [];
 
 module.exports = {
-  excelResponse: {
-    verbiageRespData: [],
-    verbiage_En_RespData: [],
-    verbiage_Fr_RespData: [],
-  },
   serverResponses: {
     default: {
       status: 200,
