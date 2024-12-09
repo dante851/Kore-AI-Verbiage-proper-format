@@ -14,17 +14,20 @@ module.exports = {
     const result = verbiage_builder_resp.filter(
       (ele) => ele.RESPONSE_ID.trim() === responseId
     );
+    const resultCopy = [];
+    resultCopy.push(result);
+    console.log("result copy",resultCopy);
     // Custom Bot Responses Condition
     if (responseId.startsWith("ESI_PHA_ORD_INFO")) {
       switch (responseId) {
         case "ESI_PHA_ORD_INFO_ORD_ID_RESP":
           orderIdInput = entityStatus;
-          let str = result[0].WEB_RESPONSE_MSG.replaceAll(
+          let str = resultCopy[0].WEB_RESPONSE_MSG.replaceAll(
             "${order_status}",
             orderIdInput
           );
-          result[0].WEB_RESPONSE_MSG = str;
-          return msgTemplate(result);
+          resultCopy[0].WEB_RESPONSE_MSG = str;
+          return msgTemplate(resultCopy);
 
         case "ESI_PHA_ORD_INFO_MEMBER_ID_RESP":
           let memberIdInput = entityStatus;
