@@ -14,7 +14,7 @@ module.exports = {
     const result = verbiage_builder_resp.filter(
       (ele) => ele.RESPONSE_ID.trim() === responseId
     );
-    const resultCopy = [];
+    let resultCopy = [];
     resultCopy = [...result];
     console.log("result copy",resultCopy);
     // Custom Bot Responses Condition
@@ -36,7 +36,7 @@ module.exports = {
             memberIdInput
           );
           resultCopy[0].WEB_RESPONSE_MSG = memberStr;
-          return msgTemplate(result);
+          return msgTemplate(resultCopy);
 
         case "ESI_PHA_ORD_INFO_INVALID_MSG":
           if (failedEntity !== null) {
@@ -45,7 +45,7 @@ module.exports = {
               failedEntity
             );
             resultCopy[0].WEB_RESPONSE_MSG = failedEntityInputStr;
-            return msgTemplate(result);
+            return msgTemplate(resultCopy);
           }
           break;
 
