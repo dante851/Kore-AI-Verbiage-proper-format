@@ -11,11 +11,11 @@ module.exports = {
     let entityStatus = messageDataWithBotUserSession.entity_status;
     let failedEntity = messageDataWithBotUserSession.failedEntity;
     let orderIdInput = "";
-    const vbConstValue = Object.freeze(verbiage_builder_resp);
-    const result = vbConstValue.filter(
+    const result = verbiage_builder_resp.filter(
       (ele) => ele.RESPONSE_ID.trim() === responseId
     );
-    const resultCopy = [...result];
+
+    const resultCopy = JSON.parse(JSON.stringify(result));
     console.log("result copy",resultCopy);
     // Custom Bot Responses Condition
     if (responseId.startsWith("ESI_PHA_ORD_INFO")) {
