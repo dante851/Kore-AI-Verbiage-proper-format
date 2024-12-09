@@ -1,8 +1,9 @@
-export let verbiageRespData = [];
-export let verbiage_En_RespData = [];
-export let verbiage_Fr_RespData = [];
 module.exports = {
-  
+  excelResponse: {
+    verbiageRespData: [],
+    verbiage_En_RespData: [],
+    verbiage_Fr_RespData: [],
+  },
   serverResponses: {
     default: {
       status: 200,
@@ -27,7 +28,8 @@ module.exports = {
       status: 401,
       body: {
         errorCode: "Unauthorized",
-        message: "Something Went Wrong. Please ensure you are logged in with the correct credentials.",
+        message:
+          "Something Went Wrong. Please ensure you are logged in with the correct credentials.",
       },
     },
     serverError: {
@@ -51,7 +53,7 @@ module.exports = {
     BAD_REQUEST: 400,
     UN_AUTHORIZED: 401,
     INTERNAL_SERVER_ERROR: 500,
-    DATA_NOT_FOUND:404,
+    DATA_NOT_FOUND: 404,
   },
   errorMessages: {
     USER_DOES_NOT_EXIST: "User account does not exist",
@@ -62,3 +64,7 @@ module.exports = {
     DELETED: "Deleted Successfully",
   },
 };
+// export let verbiageRespData = [];
+// export let verbiage_En_RespData = [];
+// export let verbiage_Fr_RespData = [];
+// Object.freeze(constants);
