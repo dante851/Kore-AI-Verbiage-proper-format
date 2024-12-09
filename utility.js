@@ -12,9 +12,9 @@ module.exports = {
     let failedEntity = messageDataWithBotUserSession.failedEntity;
     let orderIdInput = "";
     let result = verbiage_builder_resp.filter(
-      (ele) => ele.RESPONSE_ID === responseId
+      (ele) => ele.RESPONSE_ID.trim() === responseId
     );
-
+      console.log(result)
     // Custom Bot Responses Condition
     if (responseId.startsWith("ESI_PHA_ORD_INFO")) {
       switch (responseId) {
