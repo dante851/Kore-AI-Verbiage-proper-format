@@ -1,9 +1,13 @@
+const verbiageRespData = [];
+const verbiage_En_RespData = [];
+const verbiage_Fr_RespData = [];
+
 module.exports = {
-  excelResponse: {
-    verbiageRespData: [],
-    verbiage_En_RespData: [],
-    verbiage_Fr_RespData: [],
-  },
+  // excelResponse: {
+  //   verbiageRespData: [],
+  //   verbiage_En_RespData: [],
+  //   verbiage_Fr_RespData: [],
+  // },
   serverResponses: {
     default: {
       status: 200,
@@ -64,7 +68,4 @@ module.exports = {
     DELETED: "Deleted Successfully",
   },
 };
-// export let verbiageRespData = [];
-// export let verbiage_En_RespData = [];
-// export let verbiage_Fr_RespData = [];
 // Object.freeze(constants);
