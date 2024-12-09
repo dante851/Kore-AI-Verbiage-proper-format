@@ -14,8 +14,7 @@ module.exports = {
     const result = verbiage_builder_resp.filter(
       (ele) => ele.RESPONSE_ID.trim() === responseId
     );
-    let resultCopy = [];
-    resultCopy = Object.freeze([...result]);
+    const resultCopy = Object.freeze([...result]);
     console.log("result copy",resultCopy);
     // Custom Bot Responses Condition
     if (responseId.startsWith("ESI_PHA_ORD_INFO")) {
