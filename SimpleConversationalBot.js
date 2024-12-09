@@ -42,8 +42,9 @@ module.exports = {
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
       currentLanguage === "fr"
-        ? constants.verbiage_Fr_RespData
-        : constants.verbiage_En_RespData;
+        ? constants.excelResponse.verbiage_Fr_RespData
+        : constants.excelResponse.verbiage_En_RespData;
+        console.log("verbiageBuilderData",verbiageBuilderData)
     data.message = populateBotResponse(
       verbiageBuilderData,
       data.message,
