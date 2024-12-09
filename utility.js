@@ -14,89 +14,45 @@ module.exports = {
     let result = verbiage_builder_resp.filter(
       (ele) => ele.RESPONSE_ID === responseId
     );
-    //hook to add custom events
-    switch (responseId) {
-      case "ESI_PHA_ORD_INFO_ASK_ORD_TITLE":
-        return msgTemplate(result);
 
-      case "ESI_PHA_ORD_INFO_CNFN_MSG":
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_ASK_ORD_ID":
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_ORD_ID_RESP":
-        orderIdInput = entityStatus;
-        let str = result[0].WEB_RESPONSE_MSG.replaceAll(
-          "${order_status}",
-          orderIdInput
-        );
-        result[0].WEB_RESPONSE_MSG = str;
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_ORD_FALLBACK":
-        return msgTemplate(result);
-      case "ESI_PHA_ORD_INFO_ASK_MEMBER_ID":
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_CNFN_ERROR_MSG":
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_MEMBER_ID_RESP":
-        let memberIdInput = entityStatus;
-        let memberStr = result[0].WEB_RESPONSE_MSG.replaceAll(
-          "${member_status}",
-          memberIdInput
-        );
-        result[0].WEB_RESPONSE_MSG = memberStr;
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_INVALID_MSG":
-        // let failedEntityInput = failedEntity === "OrderId" ? "Order Id" : "Member Id";
-        if (failedEntity !== null) {
-          let failedEntityInputStr =
-            failedEntity === "Order Id"
-              ? result[0].WEB_RESPONSE_MSG.replaceAll(
-                  "${dynamic_entity}",
-                  failedEntity
-                )
-              : result[0].WEB_RESPONSE_MSG.replaceAll(
-                  "${dynamic_entity}",
-                  failedEntity
-                );
-          result[0].WEB_RESPONSE_MSG = failedEntityInputStr;
+    // Custom Bot Responses Condition
+    if (responseId.startsWith("ESI_PHA_ORD_INFO")) {
+      switch (responseId) {
+        case "ESI_PHA_ORD_INFO_ORD_ID_RESP":
+          orderIdInput = entityStatus;
+          let str = result[0].WEB_RESPONSE_MSG.replaceAll(
+            "${order_status}",
+            orderIdInput
+          );
+          result[0].WEB_RESPONSE_MSG = str;
           return msgTemplate(result);
-        }
 
-      case "ESI_PHA_ORD_INFO_MAX_NO_ATTEMPTS_MSG":
-        return msgTemplate(result);
+        case "ESI_PHA_ORD_INFO_MEMBER_ID_RESP":
+          let memberIdInput = entityStatus;
+          let memberStr = result[0].WEB_RESPONSE_MSG.replaceAll(
+            "${member_status}",
+            memberIdInput
+          );
+          result[0].WEB_RESPONSE_MSG = memberStr;
+          return msgTemplate(result);
 
-      case "ESI_PHA_ORD_MGMT_ORD_DETAILS_TABLE":
-        return msgTemplate(result);
+        case "ESI_PHA_ORD_INFO_INVALID_MSG":
+          if (failedEntity !== null) {
+            let failedEntityInputStr = result[0].WEB_RESPONSE_MSG.replaceAll(
+              "${dynamic_entity}",
+              failedEntity
+            );
+            result[0].WEB_RESPONSE_MSG = failedEntityInputStr;
+            return msgTemplate(result);
+          }
+          break;
 
-      case "ESI_PHA_ORD_MGMT_ORD_DETAILS_QR":
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_UNAUTHORIZED_ACCESS_MSG":
-        return msgTemplate(result);
-
-      case "ESI_PHA_ORD_INFO_FAQ_CHARGED_FOR_ORDER":
-        return msgTemplate(result);
-        
-      case "ESI_PHA_ORD_INFO_FAQ_WHERE_TO_FIND_PRESCRIPTION_ID_CARD":
-        return msgTemplate(result);
-        
-      case "ESI_PHA_ORD_INFO_FAQ_HOW_TO_CREATE_ONLINE_ACCOUNT":
-        return msgTemplate(result);
-        
-      case "ESI_PHA_ORD_INFO_FAQ_HOW_GET_ALL_MY_MEDICATIONS_AT_HOME_DELIVERY":
-        return msgTemplate(result);
-      
-      case "ESI_PHA_ORD_INFO_FAQ_WHAT_TEMPERATURE-SENSITIVE_MEDICATION":
-        return msgTemplate(result);
-
-      default:
-        return responseId;
+        default:
+          return msgTemplate(result);
+      }
+    } else {
+      // Custom FAQ Responses
+      return msgTemplate(result);
     }
   },
   resetExcelData: function () {
