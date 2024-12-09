@@ -1,7 +1,8 @@
-let verbiageRespData = [];
-let verbiage_En_RespData = [];
-let verbiage_Fr_RespData = [];
+export let verbiageRespData = [];
+export let verbiage_En_RespData = [];
+export let verbiage_Fr_RespData = [];
 module.exports = {
+  
   serverResponses: {
     default: {
       status: 200,
