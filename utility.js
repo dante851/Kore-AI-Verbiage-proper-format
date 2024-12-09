@@ -27,6 +27,7 @@ module.exports = {
             orderIdInput
           );
           resultCopy[0].WEB_RESPONSE_MSG = str;
+          console.log("result copy order id",resultCopy);
           return msgTemplate(resultCopy);
 
         case "ESI_PHA_ORD_INFO_MEMBER_ID_RESP":
@@ -36,6 +37,7 @@ module.exports = {
             memberIdInput
           );
           resultCopy[0].WEB_RESPONSE_MSG = memberStr;
+          console.log("result copy member id",resultCopy);
           return msgTemplate(resultCopy);
 
         case "ESI_PHA_ORD_INFO_INVALID_MSG":
@@ -45,6 +47,7 @@ module.exports = {
               failedEntity
             );
             resultCopy[0].WEB_RESPONSE_MSG = failedEntityInputStr;
+            console.log("result copy invalid id",resultCopy);
             return msgTemplate(resultCopy);
           }
           break;
