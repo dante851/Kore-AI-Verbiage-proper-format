@@ -30,7 +30,7 @@ module.exports = {
     }
   },
   on_bot_message: function (requestId, data, callback) {
-    resetExcelData();
+    // resetExcelData();
     if (data.message === "hi") {
       data.message = "The Bot says hello!";
     }
@@ -42,8 +42,8 @@ module.exports = {
     const currentLanguage = data.context.currentLanguage;
     const verbiageBuilderData =
       currentLanguage === "fr"
-        ? constants.verbiage_Fr_RespData
-        : constants.verbiage_En_RespData;
+        ? constants.excelResponse.verbiage_Fr_RespData
+        : constants.excelResponse.verbiage_En_RespData;
     data.message = populateBotResponse(
       verbiageBuilderData,
       data.message,
