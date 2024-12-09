@@ -11,20 +11,9 @@ module.exports = {
     let entityStatus = messageDataWithBotUserSession.entity_status;
     let failedEntity = messageDataWithBotUserSession.failedEntity;
     let orderIdInput = "";
-    // let result = verbiage_builder_resp.map(
-    //   (ele) => ele.RESPONSE_ID.trim() === responseId
-    // );
-    let result = verbiage_builder_resp.map((ele) => {
-      if (ele.RESPONSE_ID.trim() === responseId) {
-        return {
-          RESPONSE_ID: ele.RESPONSE_ID,
-          WEB_RESPONSE_MSG: ele.WEB_RESPONSE_MSG,
-          ANDROID_RESPONSE_MSG: ele.ANDROID_RESPONSE_MSG,
-          IOS_RESPONSE_MSG: ele.IOS_RESPONSE_MSG,
-          MEDIA_TYPE: ele.MEDIA_TYPE,
-        };
-      }
-    });
+    const result = verbiage_builder_resp.filter(
+      (ele) => ele.RESPONSE_ID.trim() === responseId
+    );
 
     console.log("result",result);
     // Custom Bot Responses Condition
