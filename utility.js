@@ -14,7 +14,7 @@ module.exports = {
     const result = verbiage_builder_resp.filter(
       (ele) => ele.RESPONSE_ID.trim() === responseId
     );
-    let resultCopy = [];
+    const resultCopy = [];
     resultCopy = [...result];
     console.log("result copy",resultCopy);
     // Custom Bot Responses Condition
