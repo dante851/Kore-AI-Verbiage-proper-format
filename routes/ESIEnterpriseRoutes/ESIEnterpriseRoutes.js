@@ -9,7 +9,6 @@
  */
 
 const router = require("express").Router();
-var jwt = require("jsonwebtoken");
 const ESIEnterpriseServiceController = require("../../controller/ESIEnterpriseServiceController/ESIEnterpriseServiceController");
 const apiValidation = require("../../validation/validation");
 

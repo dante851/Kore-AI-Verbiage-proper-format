@@ -1,4 +1,6 @@
 const axios = require("axios");
+const dotenv = require("dotenv");
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 module.exports = {
   /**
@@ -8,12 +10,12 @@ module.exports = {
    */
   async getOrderDetails(orderId) {
       const response = await axios.get(
-        `https://667009f30900b5f8724927c3.mockapi.io/flights/Orderdata?orderId=${orderId}`);
+        `${process.env.ESI_ORDER_ID_RESPONSE_URL}=${orderId}`);
       return response.data;
   },
   async getMemberDetails(memberId) {
         const response = await axios.get(
-          `https://667009f30900b5f8724927c3.mockapi.io/flights/Orderdata?memberId=${memberId}`);
+          `${process.env.ESI_MEMBER_ID_RESPONSE_URL}=${memberId}`);
         return response.data;
   }
 };

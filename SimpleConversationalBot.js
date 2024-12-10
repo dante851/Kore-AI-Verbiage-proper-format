@@ -1,8 +1,7 @@
 var botId = "st-ae29b86a-53b5-570a-93b9-7fdb0510f76d";
 var botName = "ordermanage";
 var sdk = require("./lib/sdk");
-const { populateBotResponse } = require("./utility");
-const { resetExcelData } = require("./utility");
+const { populateBotResponse } = require("./commonUtils");
 const constants = require("./constants/index");
 const { logFn } = require("./winston_config");
 /*
@@ -30,7 +29,6 @@ module.exports = {
     }
   },
   on_bot_message: function (requestId, data, callback) {
-    // resetExcelData();
     if (data.message === "hi") {
       data.message = "The Bot says hello!";
     }
